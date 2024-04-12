@@ -1,23 +1,41 @@
-import logo from './logo.svg';
+
 import './App.css';
+import { BrowserRouter,Route,Routes } from 'react-router-dom'
+
+import Layout from './Layout';
+import Mdata from './Mdata';
+import Purifiers from './Purify';
+import Cartdata from './Cartdata';
+import Chimneys from './Chimney';
+import Frontload from './Frontload';
+import Topload from './Topload';
+import Proddescription from './components/proddescription';
+import Stoves from './Stoves';
+import Washingmachinepowders from './Washingpowders'
+import Orders from './Orders';
+import Geysers from  './geysers'
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+       <BrowserRouter>
+      <Routes>
+          <Route path="/" element={<Layout />} /> 
+          <Route path="/chimneys" element={<Chimneys/>} /> 
+          <Route path='/data' element={<Mdata />}/>
+          <Route path='/waterfilters' element={<Purifiers/>}/>
+          <Route path='/frontloadliquids' element={<Frontload/>}/>
+          <Route path='/cart' element={<Cartdata/>}/>
+          <Route path='/toploadliquids' element={<Topload/>}/>
+          <Route path='/stove' element={<Stoves/>}/>
+          <Route path='/washingpowders' element={<Washingmachinepowders/>}/>
+          <Route path="/product/:uid" element={<Proddescription/>} />
+          <Route path="/orders" element={<Orders/>} />
+          <Route path="/geysers" element={<Geysers/>} />
+          
+      </Routes>
+    </BrowserRouter>
     </div>
   );
 }
